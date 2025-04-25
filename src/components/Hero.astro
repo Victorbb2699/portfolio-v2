@@ -2,6 +2,7 @@
 import heroImage from '@assets/images/yo.png';
 import Button from '@components/ui/Button.astro';
 import { Image } from 'astro:assets';
+import Social from './ui/Social.astro';
 ---
 
 <section
@@ -16,7 +17,7 @@ import { Image } from 'astro:assets';
 			</h1>
 		</div>
 		<div class="mb-10">
-			<Button style={'primary'} size={'lg'} class={'flex'} name="learn more">Learn more</Button>
+			<Social />
 		</div>
 	</div>
 	<div data-testid="hero-img" class="mb-10 flex w-1/2 items-center justify-center">
