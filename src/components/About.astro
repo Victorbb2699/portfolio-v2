@@ -1,51 +1,49 @@
----
-// AboutMe.astro
----
-
 <section
 	id="about"
 	class="mb-16 flex flex-col items-center justify-center px-4 py-12 lg:h-screen lg:flex-row lg:gap-16"
 >
+	<!-- Descripción breve -->
 	<div class="mb-10 w-full lg:mb-0 lg:w-1/2">
 		<h2 class="font-monospace text-3xl font-bold text-lightgreen lg:text-4xl">About Me</h2>
 		<span class="mb-6 block h-1 w-16 bg-lightgreen"></span>
 
 		<p class="text-justify text-lg leading-relaxed text-black dark:text-white">
-			Soy un desarrollador frontend con pasión por crear interfaces limpias, rápidas y funcionales.
-			Desde que descubrí el mundo del desarrollo web, me dedico a mejorar constantemente mis
-			habilidades, experimentar con nuevas tecnologías y disfrutar del proceso creativo. Fuera del
-			código, me gusta el café, la música y resolver problemas como si fueran puzzles.
+			I started my development journey as a backend developer, focusing on Java and system
+			architecture. Over time, my interest shifted to frontend development, and I became a fullstack
+			developer, building complete applications from databases to user interfaces. I enjoy working
+			in teams, learning continuously, and contributing to projects that bring real value.
+			Currently, I am focused on expanding my knowledge of modern technologies and growing
+			professionally.
 		</p>
 	</div>
 
+	<!-- Timeline -->
 	<div class="w-full lg:w-1/2">
-		<ul class="space-y-6 border-l-4 border-lightgreen pl-6">
+		<ul class="space-y-6 border-l-2 border-lightgreen pl-6">
 			<li>
-				<div class="font-bold text-lightgreen">2019 - Estudios</div>
-				<p class="dark:text-gray-300 text-white">
-					Comencé mis estudios en desarrollo web, aprendiendo HTML, CSS y JavaScript de forma
-					autodidacta.
-				</p>
+				<div class="text-xl font-semibold text-lightgreen">Studies</div>
+
+				<!-- Sub Timeline for Studies -->
+				<div class="ml-6 mt-4 space-y-3">
+					<div class="flex items-center space-x-3">
+						<div class="h-2.5 w-2.5 rounded-full bg-lightgreen"></div>
+						<div>
+							<h3 class="text-black dark:text-white">2016/2018 - Technological baccalaureate</h3>
+						</div>
+					</div>
+					<div class="flex items-center space-x-3">
+						<div class="h-2.5 w-2.5 rounded-full bg-lightgreen"></div>
+						<div>
+							<h3 class="text-black dark:text-white">
+								2018/2020 - Multiplatform application development(DAM)
+							</h3>
+						</div>
+					</div>
+				</div>
 			</li>
+
 			<li>
-				<div class="font-bold text-lightgreen">2021 - Primeros proyectos</div>
-				<p class="dark:text-gray-300 text-white">
-					Participé en pequeños proyectos freelance, creando sitios web responsivos y funcionales.
-				</p>
-			</li>
-			<li>
-				<div class="font-bold text-lightgreen">2023 - Especialización</div>
-				<p class="dark:text-gray-300 text-white">
-					Me enfoqué en frameworks modernos como Astro y React, profundizando en accesibilidad y
-					performance.
-				</p>
-			</li>
-			<li>
-				<div class="font-bold text-lightgreen">2024 - Actualmente</div>
-				<p class="dark:text-gray-300 text-white">
-					Sigo construyendo proyectos, colaborando y aprendiendo día a día. ¡Siempre con ganas de
-					más!
-				</p>
+				<div class="text-xl font-semibold text-lightgreen">Experience</div>
 			</li>
 		</ul>
 	</div>
