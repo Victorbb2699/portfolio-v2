@@ -1,3 +1,7 @@
+---
+import { FaLaptopCode } from 'react-icons/fa';
+---
+
 <section
 	id="about"
 	class="mb-16 flex flex-col items-center justify-center px-4 py-12 lg:h-screen lg:flex-row lg:gap-16"
@@ -20,31 +24,195 @@
 	<!-- Timeline -->
 	<div class="w-full lg:w-1/2">
 		<ul class="space-y-6 border-l-2 border-lightgreen pl-6">
+			<!-- Studies Section -->
 			<li>
-				<div class="text-xl font-semibold text-lightgreen">Studies</div>
-
-				<!-- Sub Timeline for Studies -->
+				<div class="font-monospace text-3xl font-bold text-lightgreen lg:text-4xl">Studies</div>
 				<div class="ml-6 mt-4 space-y-3">
-					<div class="flex items-center space-x-3">
-						<div class="h-2.5 w-2.5 rounded-full bg-lightgreen"></div>
-						<div>
-							<h3 class="text-black dark:text-white">2016/2018 - Technological baccalaureate</h3>
+					<!-- First study -->
+					<div class="flex flex-col items-start space-y-2">
+						<span class="font-monospace text-sm text-lightgreen">2016 - 2018</span>
+						<div class="flex items-center space-x-3">
+							<div class="h-2.5 w-2.5 rounded-full bg-lightgreen"></div>
+							<div>
+								<h3 class="text-black dark:text-white">Technological Baccalaureate</h3>
+							</div>
 						</div>
 					</div>
-					<div class="flex items-center space-x-3">
-						<div class="h-2.5 w-2.5 rounded-full bg-lightgreen"></div>
-						<div>
-							<h3 class="text-black dark:text-white">
-								2018/2020 - Multiplatform application development(DAM)
-							</h3>
+
+					<!-- Second study -->
+					<div class="flex flex-col items-start space-y-2">
+						<span class="font-monospace text-sm text-lightgreen">2018 - 2020</span>
+						<div class="flex items-center space-x-3">
+							<div class="h-2.5 w-2.5 rounded-full bg-lightgreen"></div>
+							<div>
+								<h3 class="text-black dark:text-white">
+									Multiplatform Application Development (DAM)
+								</h3>
+							</div>
 						</div>
 					</div>
 				</div>
 			</li>
 
+			<!-- Experience Section -->
 			<li>
-				<div class="text-xl font-semibold text-lightgreen">Experience</div>
+				<div class="font-monospace text-3xl font-bold text-lightgreen lg:text-4xl">Experience</div>
+				<div class="ml-6 mt-4 space-y-3">
+					<!-- First experience -->
+					<div class="flex flex-col items-start space-y-2">
+						<span class="font-monospace text-sm text-lightgreen"
+							>2020 - Internship Backend Developer - 4 months</span
+						>
+						<div class="flex items-center space-x-3">
+							<div class="h-2.5 w-2.5 rounded-full bg-lightgreen"></div>
+							<div>
+								<p class="mt-4 text-black dark:text-white">Developed a web app for digital...</p>
+								<button id="btn-1" class="font-monospace text-sm text-lightgreen hover:underline">
+									Read more
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Second experience -->
+					<div class="flex flex-col items-start space-y-2">
+						<span class="font-monospace text-sm text-lightgreen"
+							>2024 - Software Developer - 8 months</span
+						>
+						<div class="flex items-center space-x-3">
+							<div class="h-2.5 w-2.5 rounded-full bg-lightgreen"></div>
+							<div>
+								<p class="mt-4 text-black dark:text-white">
+									Developed a complete eCommerce solution using...
+								</p>
+								<button id="btn-2" class="font-monospace text-sm text-lightgreen hover:underline">
+									Read more
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
 			</li>
 		</ul>
 	</div>
+
+	<!-- Modal for First Experience -->
+	<div
+		id="modal-1"
+		class="modal fixed inset-0 z-50 flex hidden items-center justify-center bg-black bg-opacity-50"
+	>
+		<div class="dark:bg-darkgray w-full max-w-4xl rounded-lg bg-white p-8 shadow-lg">
+			<h3 class="text-2xl font-bold text-lightgreen dark:text-lightgreen">
+				Internship Backend Developer
+			</h3>
+			<p class="mt-4 text-black dark:text-white">
+				<ul class="list-disc space-y-2 pl-6 text-black dark:text-white">
+					<li class="marker:text-lightgreen dark:marker:text-lightgreen">
+						Developed a web app for digital signatures using JavaScript, Canvas API, PHP, HTML, and
+						CSS.
+					</li>
+					<li class="marker:text-lightgreen dark:marker:text-lightgreen">
+						Securely captured and stored signatures with a responsive user interface.
+					</li>
+				</ul>
+			</p>
+			<button
+				id="readLessBtn1"
+				class="mt-4 font-monospace text-sm text-lightgreen hover:underline dark:text-lightgreen"
+			>
+				Read less
+			</button>
+		</div>
+	</div>
+
+	<!-- Modal for Second Experience -->
+	<div
+		id="modal-2"
+		class="modal fixed inset-0 z-50 flex hidden items-center justify-center bg-black bg-opacity-50"
+	>
+		<div class="dark:bg-darkgray w-full max-w-4xl rounded-lg bg-white p-8 shadow-lg">
+			<h3 class="text-2xl font-bold text-lightgreen dark:text-lightgreen">Software Developer</h3>
+			<p class="mt-4 text-black dark:text-white">
+				<ul class="list-disc space-y-2 pl-6 text-black dark:text-white">
+					<li class="marker:text-lightgreen dark:marker:text-lightgreen">
+						<strong>💻 Software Developer – Highlighted Projects</strong>
+					</li>
+
+					<li class="marker:text-lightgreen dark:marker:text-lightgreen">
+						<strong>🔹 Generic eCommerce Template</strong>
+					</li>
+					<ul class="list-disc pl-6">
+						<li class="marker:text-lightgreen dark:marker:text-lightgreen">
+							Developed a complete eCommerce solution using Spring Boot and Thymeleaf, with a
+							modular, scalable, and secure architecture.
+						</li>
+						<li class="marker:text-lightgreen dark:marker:text-lightgreen">
+							Implemented security layers, data persistence, and deployment via Docker.
+						</li>
+						<li class="marker:text-lightgreen dark:marker:text-lightgreen">
+							Optimized for cloud environments with AWS, enhancing performance and scalability.
+						</li>
+					</ul>
+
+					<li class="marker:text-lightgreen dark:marker:text-lightgreen">
+						<strong>🔹 Room Reservation Management System</strong>
+					</li>
+					<ul class="list-disc pl-6">
+						<li class="marker:text-lightgreen dark:marker:text-lightgreen">
+							Brought a full-stack web application focused on security, user experience, and modern
+							deployment practices.
+						</li>
+						<li class="marker:text-lightgreen dark:marker:text-lightgreen">
+							Backend: Django + DRF, exposing a secure RESTful API protected by JWT authentication
+							managed through Keycloak as an identity provider (SSO replacement).
+						</li>
+						<li class="marker:text-lightgreen dark:marker:text-lightgreen">
+							Frontend: Developed with Next.js for a modern and responsive user interface.
+						</li>
+						<li class="marker:text-lightgreen dark:marker:text-lightgreen">
+							Database: PostgreSQL.
+						</li>
+						<li class="marker:text-lightgreen dark:marker:text-lightgreen">
+							Integrated automatic confirmation email sending for reservations.
+						</li>
+						<li class="marker:text-lightgreen dark:marker:text-lightgreen">
+							Designed a centralized logging system and robust error handling.
+						</li>
+						<li class="marker:text-lightgreen dark:marker:text-lightgreen">
+							Fully dockerized solution, ensuring reproducibility and seamless deployment across all
+							development stages.
+						</li>
+					</ul>
+				</ul>
+			</p>
+			<button
+				id="readLessBtn2"
+				class="mt-4 font-monospace text-sm text-lightgreen hover:underline dark:text-lightgreen"
+			>
+				Read less
+			</button>
+		</div>
+	</div>
 </section>
+
+<script>
+	// Show modal for the first experience
+	document.getElementById('btn-1').addEventListener('click', function () {
+		document.getElementById('modal-1').classList.remove('hidden');
+	});
+
+	// Show modal for the second experience
+	document.getElementById('btn-2').addEventListener('click', function () {
+		document.getElementById('modal-2').classList.remove('hidden');
+	});
+
+	// Close modal for the first experience (Read less)
+	document.getElementById('readLessBtn1').addEventListener('click', function () {
+		document.getElementById('modal-1').classList.add('hidden');
+	});
+
+	// Close modal for the second experience (Read less)
+	document.getElementById('readLessBtn2').addEventListener('click', function () {
+		document.getElementById('modal-2').classList.add('hidden');
+	});
+</script>
