@@ -1,0 +1,91 @@
+---
+// ContactForm.astro
+import Button from '@components/ui/Button.astro';
+import Social from '@components/ui/Social.astro';
+---
+
+<form
+	id="contact-form"
+	action="https://formspree.io/f/mjkwkewd"
+	method="POST"
+	class="flex w-full max-w-md flex-col gap-4"
+	onsubmit="return validateForm(event)"
+>
+	<!-- Nombre -->
+	<div class="flex flex-col gap-1">
+		<input
+			type="text"
+			name="name"
+			id="name"
+			placeholder="Your name"
+			required
+			class="rounded border-2 border-lightgreen p-2 text-black dark:text-black"
+		/>
+		<span id="error-name" class="text-red-500 hidden text-sm">Name is required.</span>
+	</div>
+
+	<!-- Email -->
+	<div class="flex flex-col gap-1">
+		<input
+			type="email"
+			name="email"
+			id="email"
+			placeholder="Your email"
+			required
+			class="rounded border-2 border-lightgreen p-2 text-black dark:text-black"
+		/>
+		<span id="error-email" class="text-red-500 hidden text-sm"
+			>Please enter a valid email address.</span
+		>
+	</div>
+
+	<!-- Mensaje -->
+	<div class="flex flex-col gap-1">
+		<textarea
+			name="message"
+			id="message"
+			placeholder="Your message"
+			rows="5"
+			required
+			class="max-h-[460px] resize-y rounded border-2 border-lightgreen p-2 text-black dark:text-black"
+		></textarea>
+		<span id="error-message" class="text-red-500 hidden text-sm">Message cannot be empty.</span>
+	</div>
+
+	<!-- Botón personalizado -->
+	<div class="self-center">
+		<a
+			href="#"
+			onclick="document.getElementById('contact-form').requestSubmit()"
+			class="no-underline"
+		>
+			<Button size="lg" style="primary" name="Contact">Contact me!</Button>
+		</a>
+	</div>
+</form>
+
+<!-- Script de validación -->
+<script>
+	const $form = document.querySelector('#contact-form') as HTMLFormElement | null;
+	async function handleSubmit(event) {
+		event.preventDefault();
+		if (!$form) {
+			alert('Formulario no encontrado');
+			return;
+		}
+		const formData = new FormData($form);
+		try {
+			const response = await fetch(this.action, {
+				method: 'POST',
+				body: formData,
+			});
+			if (!response.ok) {
+				throw new Error('Error al enviar el formulario');
+			}
+			const result = await response.json();
+			alert('Formulario enviado exitosamente!');
+		} catch (error) {
+			alert('Ocurrió un error al enviar el formulario: ' + error.message);
+		}
+	}
+</script>

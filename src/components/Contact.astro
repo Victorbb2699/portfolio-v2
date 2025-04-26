@@ -1,6 +1,7 @@
 ---
 import Button from '@components/ui/Button.astro';
 import Social from '@components/ui/Social.astro';
+import ContactForm from './ContactForm.astro';
 ---
 
 <section
@@ -8,14 +9,10 @@ import Social from '@components/ui/Social.astro';
 	id="contact"
 	class="flex flex-col flex-wrap items-center justify-center gap-8 text-black dark:text-white lg:mb-0 lg:h-screen"
 >
-	<a
-		href="https://mail.google.com/mail/?view=cm&fs=1&to=vbetbar@gmail.com"
-		target="_blank"
-		rel="noopener noreferrer"
-		class="no-underline"
-	>
-		<div class="flex flex-col gap-8 lg:flex lg:flex-row lg:gap-20"></div>
-		<Button size={'lg'} style={'primary'} name="Contact">Contact me!</Button>
-
-	</a>
+	<h2 class="font-monospace text-2xl text-lightgreen lg:text-4xl">Contact</h2>
+	<p class="max-w-l text-center text-lg">
+		I'm currently open to new opportunities and collaborations. Feel free to reach out!
+	</p>
+	<ContactForm />
+	<Social />
 </section>
