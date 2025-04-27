@@ -2,12 +2,12 @@ import mdx from '@astrojs/mdx';
 import tailwind from '@astrojs/tailwind';
 import icon from "astro-icon";
 import path from 'node:path';
-
+import react from '@astrojs/react';
 
 import { defineConfig, squooshImageService } from 'astro/config';
 
 export default defineConfig({
-  integrations: [tailwind(), mdx(), icon({
+  integrations: [react(), tailwind(), mdx(), icon({
     include: {
       mdi: ["*"]
     }

@@ -1,7 +1,9 @@
 ---
 import Button from './Button.astro';
-import School from './school.astro';
+import School from './School.astro';
 import Briefcase from './Briefcase.astro';
+import SlideInPanel from './SlideInPanel';
+import { useState } from 'react';
 ---
 
 <div class="mb-2 flex flex-row">
@@ -53,7 +55,7 @@ import Briefcase from './Briefcase.astro';
 		<p class="mb-4 text-sm text-black dark:text-white">
 			Developed a web app for digital signatures using JavaScript, Canvas API, PHP, HTML, and CSS.
 		</p>
-		<a href="#" class="">
+		<a href="javascript:void(0);" class="font-monospace text-sm" onclick={`togglePanel('panel-1')`}>
 			<Button size="lg" style="primary" name="Learn more">Learn more...</Button>
 		</a>
 	</li>
@@ -70,9 +72,10 @@ import Briefcase from './Briefcase.astro';
 			Developed a complete eCommerce solution using Spring Boot and Thymeleaf, with a modular,
 			scalable, and secure architecture.
 		</p>
-		<a href="#" class="">
+		<a href="javascript:void(0);" class="font-monospace text-sm" onclick="togglePanel('panel-2')">
 			<Button size="lg" style="primary" name="Learn more">Learn more...</Button>
 		</a>
+
 		<path
 			stroke="currentColor"
 			stroke-linecap="round"
@@ -81,3 +84,46 @@ import Briefcase from './Briefcase.astro';
 			d="M1 5h12m0 0L9 1m4 4L9 9"></path>
 	</li>
 </ol>
+<SlideInPanel
+	id="panel-1"
+	title="Internship Backend Developer"
+	content="Desarrollé una aplicación web para firmas digitales utilizando JavaScript, Canvas API, PHP, HTML y CSS. Además optimicé el flujo de trabajo con automatización de formularios y gestión segura de documentos."
+	client:load
+/>
+<SlideInPanel
+	id="panel-2"
+	title="Software Developer"
+	content="Desarrollé una solución completa de eCommerce usando Spring Boot y Thymeleaf, con arquitectura modular, escalable y segura. Me enfoqué en integrar métodos de pago y optimización del rendimiento."
+	client:load
+/>
+
+<script>
+	let activePanel: HTMLElement | null = null;
+	const backToTopButton = document.getElementById('btn-back-to-top');
+
+	function togglePanel(id: string) {
+		const panel = document.getElementById(id);
+		if (panel) {
+			if (activePanel && activePanel !== panel) {
+				activePanel.classList.add('translate-x-full');
+			}
+			panel.classList.toggle('translate-x-full');
+			activePanel = panel.classList.contains('translate-x-full') ? null : panel;
+		}
+		if (backToTopButton) {
+			if (activePanel) {
+				backToTopButton.classList.add('hidden');
+			} else {
+				backToTopButton.classList.remove('hidden');
+			}
+		}
+	}
+
+	declare global {
+		interface Window {
+			togglePanel: (id: string) => void;
+		}
+	}
+	//btn-back-to-top
+	window.togglePanel = togglePanel;
+</script>
