@@ -2,9 +2,23 @@
 import Card from '@components/ui/Card.astro';
 import { getCollection } from 'astro:content';
 
-const projects = await getCollection('projects', ({ data }) => {
+import questionMark from '@assets/images/questionMark.png';
+import imageEcommerce from '@assets/images/imageEcommerce.png';
+import project from '@assets/images/project.png';
+
+const projects = (await getCollection('projects', ({ data }) => {
 	return !data.inProgress;
-});
+})) as Array<{
+	data: {
+		inProgress: boolean;
+		title: string;
+		description: string;
+		tags: string[];
+		link: string;
+		img_alt?: string;
+		image?: string;
+	};
+}>;
 function getIconForTag(tag: string) {
 	const icons = {
 		spring: 'devicon-spring-plain',
@@ -13,17 +27,14 @@ function getIconForTag(tag: string) {
 		postgresql: 'devicon-postgresql-plain',
 		docker: 'devicon-docker-plain',
 		aws: 'devicon-amazonwebservices-plain-wordmark',
-		apirest: 'devicon-aws-plain',
 		python: 'devicon-python-plain',
 		django: 'devicon-django-plain',
 		drf: 'devicon-djangorest-plain-wordmark',
 		nextjs: 'devicon-nextjs-plain',
 		typescript: 'devicon-typescript-plain',
-		keycloak: 'devicon-keycloak-plain',
-		jwt: 'devicon-jwt-plain',
 		mysql: 'devicon-mysql-plain',
 		maven: 'devicon-maven-plain-wordmark',
-		react:'devicon-react-original'
+		react: 'devicon-react-original',
 	};
 
 	const cleanTag = tag.startsWith('#') ? tag.slice(1) : tag;
@@ -32,7 +43,19 @@ function getIconForTag(tag: string) {
 
 const projectsWithTags = projects.map((project) => {
 	const tagsWithIcons = project.data.tags.map(getIconForTag);
-	return { ...project, tags: tagsWithIcons };
+
+	let importedImage;
+	if (project.data.image === 'imageEcommerce') {
+		importedImage = imageEcommerce;
+	} else if (project.data.image === 'questionMark') {
+		importedImage = questionMark;
+	} else {
+		importedImage = questionMark;
+	}
+
+	console.log('Imported image:', importedImage);
+	console.log('Project:', project.data.image);
+	return { ...project, tags: tagsWithIcons, importedImage };
 });
 ---
 
@@ -52,6 +75,7 @@ const projectsWithTags = projects.map((project) => {
 					description={project.data.description}
 					alt={project.data.img_alt}
 					tags={project.tags}
+					image={project.importedImage}
 				/>
 			))
 		}
