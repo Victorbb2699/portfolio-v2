@@ -6,8 +6,14 @@ import Experience from './ui/Experience.astro';
 	id="about"
 	class="mb-16 flex flex-col items-center justify-center px-4 py-12 lg:h-screen lg:flex-row lg:gap-16"
 >
+	<section class="w-full lg:w-1/2">
+		<Experience />
+	</section>
+
+	<span class="hidden h-[479px] w-[2px] bg-lightgreen lg:block"></span>
+
 	<!-- Descripción breve -->
-	<div class="mb-10 w-full lg:mb-0 lg:w-1/2">
+	<div class="mb-10 w-full flex-grow lg:mb-0 lg:w-1/2">
 		<h2 class="font-monospace text-3xl font-bold text-lightgreen lg:text-4xl">About Me</h2>
 		<span class="mb-6 block h-1 w-16 bg-lightgreen"></span>
 
@@ -20,8 +26,4 @@ import Experience from './ui/Experience.astro';
 			professionally.
 		</p>
 	</div>
-
-	<section>
-		<Experience />
-	</section>
 </section>

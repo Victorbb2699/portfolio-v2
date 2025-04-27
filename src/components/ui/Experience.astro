@@ -1,8 +1,16 @@
 ---
 import Button from './Button.astro';
+import School from './school.astro';
+import Briefcase from './Briefcase.astro';
 ---
 
-<ol class="relative border-s border-lightgreen">
+<div class="mb-2 flex flex-row">
+	<School class="mr-2 size-6" />
+	<h2 class="font-monospace text-lg font-semibold text-lightgreen">Studies & Experience</h2>
+	<Briefcase class="ml-2 size-6" />
+</div>
+
+<ol class="relative ml-3 border-s border-lightgreen">
 	<!-- Studies Section -->
 	<li class="mb-10 ms-4">
 		<div
@@ -10,9 +18,10 @@ import Button from './Button.astro';
 		>
 		</div>
 		<time class="mb-1 text-sm font-normal leading-none text-lightgreen">2016 - 2018</time>
-		<h3 class="text-lg font-semibold text-lightgreen">Technological Baccalaureate</h3>
-		<span class="mb-2 block h-1 w-16 bg-lightgreen"></span>
-		<p class="text-gray-500 dark:text-gray-400 mb-4 text-base font-normal">
+		<h3 class="font-monospace text-lg font-semibold text-lightgreen">
+			Technological Baccalaureate
+		</h3>
+		<p class="mb-4 text-sm text-black dark:text-white">
 			Completed studies in technological fields, focusing on programming and system design.
 		</p>
 	</li>
@@ -23,11 +32,10 @@ import Button from './Button.astro';
 		>
 		</div>
 		<time class="mb-1 text-sm font-normal leading-none text-lightgreen">2018 - 2020</time>
-		<h3 class="text-lg font-semibold text-lightgreen">
+		<h3 class="font-monospace text-lg font-semibold text-lightgreen">
 			Multiplatform Application Development (DAM)
 		</h3>
-		<span class="mb-2 block h-1 w-16 bg-lightgreen"></span>
-		<p class="text-gray-500 dark:text-gray-400 text-base font-normal">
+		<p class="mb-4 text-sm text-black dark:text-white">
 			Gained expertise in full-stack development, working with various frameworks and databases.
 		</p>
 	</li>
@@ -38,11 +46,11 @@ import Button from './Button.astro';
 			class="bg-gray-200 dark:border-gray-900 dark:bg-gray-700 absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full border border-white"
 		>
 		</div>
-		<time class="mb-1 text-sm font-normal leading-none text-lightgreen"
-			>2020 - Internship Backend Developer - 4 months</time
-		>
-		<h3 class="text-lg font-semibold text-lightgreen">Internship Backend Developer</h3>
-		<p class="mb-4 text-base font-normal text-black dark:text-white">
+		<time class="mb-1 text-sm font-normal leading-none text-lightgreen">2020 - 4 months</time>
+		<h3 class="font-monospace text-lg font-semibold text-lightgreen">
+			Internship Backend Developer
+		</h3>
+		<p class="mb-4 text-sm text-black dark:text-white">
 			Developed a web app for digital signatures using JavaScript, Canvas API, PHP, HTML, and CSS.
 		</p>
 		<a href="#" class="">
@@ -56,31 +64,20 @@ import Button from './Button.astro';
 			class="bg-gray-200 dark:border-gray-900 dark:bg-gray-700 absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full border border-white"
 		>
 		</div>
-		<time class="mb-1 text-sm font-normal leading-none text-lightgreen"
-			>2024 - Software Developer - 8 months</time
-		>
-		<h3 class="text-lg font-semibold text-lightgreen">Software Developer</h3>
-		<p class="text-gray-500 dark:text-gray-400 text-base font-normal">
+		<time class="mb-1 text-sm font-normal leading-none text-lightgreen">2024 - 8 months</time>
+		<h3 class="font-monospace text-lg font-semibold text-lightgreen">Software Developer</h3>
+		<p class="mb-4 text-sm text-black dark:text-white">
 			Developed a complete eCommerce solution using Spring Boot and Thymeleaf, with a modular,
 			scalable, and secure architecture.
 		</p>
-		<a
-			href="#"
-			class="text-gray-900 border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700 inline-flex items-center rounded-lg border bg-white px-4 py-2 text-sm font-medium focus:z-10 focus:outline-none focus:ring-4 dark:hover:text-white"
-			>Learn more <svg
-				class="ms-2 h-3 w-3 rtl:rotate-180"
-				aria-hidden="true"
-				xmlns="http://www.w3.org/2000/svg"
-				fill="none"
-				viewBox="0 0 14 10"
-			>
-				<path
-					stroke="currentColor"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M1 5h12m0 0L9 1m4 4L9 9"></path></svg
-			></a
-		>
+		<a href="#" class="">
+			<Button size="lg" style="primary" name="Learn more">Learn more...</Button>
+		</a>
+		<path
+			stroke="currentColor"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			stroke-width="2"
+			d="M1 5h12m0 0L9 1m4 4L9 9"></path>
 	</li>
 </ol>
