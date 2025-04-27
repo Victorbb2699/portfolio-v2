@@ -5,6 +5,34 @@ import { getCollection } from 'astro:content';
 const projects = await getCollection('projects', ({ data }) => {
 	return !data.inProgress;
 });
+function getIconForTag(tag: string) {
+	const icons = {
+		spring: 'devicon-spring-plain',
+		java: 'devicon-java-plain',
+		thymeleaf: 'devicon-thymeleaf-plain',
+		postgresql: 'devicon-postgresql-plain',
+		docker: 'devicon-docker-plain',
+		aws: 'devicon-amazonwebservices-plain-wordmark',
+		apirest: 'devicon-aws-plain',
+		python: 'devicon-python-plain',
+		django: 'devicon-django-plain',
+		drf: 'devicon-djangorest-plain-wordmark',
+		nextjs: 'devicon-nextjs-plain',
+		typescript: 'devicon-typescript-plain',
+		keycloak: 'devicon-keycloak-plain',
+		jwt: 'devicon-jwt-plain',
+		mysql: 'devicon-mysql-plain',
+		maven: 'devicon-maven-plain-wordmark'
+	};
+
+	const cleanTag = tag.startsWith('#') ? tag.slice(1) : tag;
+	return { name: cleanTag, icon: icons[cleanTag.toLowerCase()] || '' };
+}
+
+const projectsWithTags = projects.map((project) => {
+	const tagsWithIcons = project.data.tags.map(getIconForTag);
+	return { ...project, tags: tagsWithIcons };
+});
 ---
 
 <section
@@ -16,17 +44,18 @@ const projects = await getCollection('projects', ({ data }) => {
 	<span class="mb-10 h-1 w-10 bg-lightgreen"></span>
 	<div class="mb-10 flex w-full flex-col flex-wrap items-center md:flex-row">
 		{
-			projects.map((project) => (
+			projectsWithTags.map((project) => (
 				<Card
-					url={project.data.link}
+					url={project.data.link !== '#' ? project.data.link : ''}
 					title={project.data.title}
 					description={project.data.description}
 					alt={project.data.img_alt}
-					tags={project.data.tags}
+					tags={project.tags}
 				/>
 			))
 		}
 	</div>
+
 	<a
 		href="https://github.com/victorbb2699?tab=repositories"
 		target="_blank"

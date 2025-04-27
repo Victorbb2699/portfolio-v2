@@ -1,6 +1,8 @@
 ---
+import 'devicon/devicon.min.css';
+
 export interface Props {
-	tags?: string[];
+	tags?: { name: string; icon: string }[];
 }
 
 const { tags } = Astro.props;
@@ -8,9 +10,19 @@ const { tags } = Astro.props;
 
 {
 	tags && (
-		<div class="mt-2 flex w-2/3 flex-row flex-wrap justify-between">
+		<div class="mt-2 flex w-full flex-row flex-wrap justify-between">
 			{tags.map((tag) => (
-				<span class="inline-block rounded py-2 text-xs text-black  lg:py-1">#{tag}</span>
+				<div class="inline-block rounded py-2 text-xs text-black lg:py-1">
+					{tag.icon ? (
+						<i
+							class={`devicon ${tag.icon} colored`}
+							style="font-size: 2.5rem"
+							aria-label={tag.name}
+						/>
+					) : (
+						<span>{tag.name}</span> // Si no tiene ícono, mostramos solo el texto
+					)}
+				</div>
 			))}
 		</div>
 	)
