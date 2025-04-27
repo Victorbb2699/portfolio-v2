@@ -103,13 +103,28 @@ import { useState } from 'react';
 
 	function togglePanel(id: string) {
 		const panel = document.getElementById(id);
+		const button = document.querySelector(`[onclick="togglePanel('${id}')"] Button`);
 		if (panel) {
 			if (activePanel && activePanel !== panel) {
 				activePanel.classList.add('translate-x-full');
+				// Cambiar el texto del botón del panel anterior a "Learn more"
+				const previousButton = document.querySelector(
+					`[onclick="togglePanel('${activePanel.id}')"] Button`
+				);
+				if (previousButton) {
+					previousButton.textContent = 'Learn more...';
+				}
 			}
+
 			panel.classList.toggle('translate-x-full');
 			activePanel = panel.classList.contains('translate-x-full') ? null : panel;
+
+			// Cambiar el texto del botón actual
+			if (button) {
+				button.textContent = activePanel ? 'Read less' : 'Learn more...';
+			}
 		}
+
 		if (backToTopButton) {
 			if (activePanel) {
 				backToTopButton.classList.add('hidden');
@@ -121,7 +136,7 @@ import { useState } from 'react';
 
 	declare global {
 		interface Window {
-			togglePanel: (id: string) => void;
+			togglePanel?: (id: string) => void;
 		}
 	}
 	//btn-back-to-top
