@@ -93,7 +93,19 @@ import { useState } from 'react';
 <SlideInPanel
 	id="panel-2"
 	title="Software Developer"
-	content="Desarrollé una solución completa de eCommerce usando Spring Boot y Thymeleaf, con arquitectura modular, escalable y segura. Me enfoqué en integrar métodos de pago y optimización del rendimiento."
+	content={`
+    Developed a complete eCommerce solution using Spring Boot and Thymeleaf, with a modular, scalable, and secure architecture.
+    Implemented security layers, data persistence, and deployment via Docker.
+    Optimized for cloud environments with AWS, enhancing performance and scalability.
+    Room Reservation Management System:
+    Developed a full-stack web application focused on security, user experience, and modern deployment practices.
+    Backend: Django + DRF, exposing a secure RESTful API protected by JWT authentication managed through Keycloak as an identity provider (SSO replacement).
+    Frontend: Developed with Next.js for a modern and responsive user interface.
+    Database: PostgreSQL.
+    Integrated automatic confirmation email sending for reservations.
+    Designed a centralized logging system and robust error handling.
+    Fully dockerized solution, ensuring reproducibility and seamless deployment across all development stages.
+  `}
 	client:load
 />
 
