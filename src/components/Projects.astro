@@ -53,8 +53,6 @@ const projectsWithTags = projects.map((project) => {
 		importedImage = questionMark;
 	}
 
-	console.log('Imported image:', importedImage);
-	console.log('Project:', project.data.image);
 	return { ...project, tags: tagsWithIcons, importedImage };
 });
 ---
