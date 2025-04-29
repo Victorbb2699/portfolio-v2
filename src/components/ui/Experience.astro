@@ -9,7 +9,7 @@ import { useState } from 'react';
 <div class="mb-2 flex flex-row">
 	<School class="mr-2 mt-2 size-6 text-black dark:text-white" />
 	<h2 class="font-monospace text-3xl font-semibold text-lightgreen">Studies & Experience</h2>
-	<Briefcase class="text-black dark:text-white ml-2 mt-2 size-6" />
+	<Briefcase class="ml-2 mt-2 size-6 text-black dark:text-white" />
 </div>
 
 <ol class="relative ml-3 border-s border-lightgreen">
@@ -66,7 +66,7 @@ import { useState } from 'react';
 			class="bg-gray-200 dark:border-gray-900 dark:bg-gray-700 absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full border border-white"
 		>
 		</div>
-		<time class="mb-1 text-sm font-normal leading-none text-lightgreen">2024 - 8 months</time>
+		<time class="mb-1 text-sm font-normal leading-none text-lightgreen">2024 - 2025</time>
 		<h3 class="font-monospace text-lg font-semibold text-lightgreen">Software Developer</h3>
 		<p class="mb-4 text-sm text-black dark:text-white">
 			Developed a complete eCommerce solution using Spring Boot and Thymeleaf, with a modular,
@@ -146,7 +146,6 @@ import { useState } from 'react';
 		if (panel) {
 			if (activePanel && activePanel !== panel) {
 				activePanel.classList.add('translate-x-full');
-				// Cambiar el texto del botón del panel anterior a "Learn more"
 				const previousButton = document.querySelector(
 					`[onclick="togglePanel('${activePanel.id}')"] Button`
 				);
@@ -158,7 +157,6 @@ import { useState } from 'react';
 			panel.classList.toggle('translate-x-full');
 			activePanel = panel.classList.contains('translate-x-full') ? null : panel;
 
-			// Cambiar el texto del botón actual
 			if (button) {
 				button.textContent = activePanel ? 'Read less' : 'Learn more...';
 			}
@@ -173,11 +171,28 @@ import { useState } from 'react';
 		}
 	}
 
+	function closePanelOnScroll() {
+		if (activePanel) {
+			activePanel.classList.add('translate-x-full');
+			activePanel = null;
+
+			const buttons = document.querySelectorAll(`[onclick^="togglePanel"] Button`);
+			buttons.forEach((button) => {
+				button.textContent = 'Learn more...';
+			});
+
+			if (backToTopButton) {
+				backToTopButton.classList.remove('hidden');
+			}
+		}
+	}
+
+	window.addEventListener('scroll', closePanelOnScroll);
+
 	declare global {
 		interface Window {
 			togglePanel?: (id: string) => void;
 		}
 	}
-	//btn-back-to-top
 	window.togglePanel = togglePanel;
 </script>
