@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 
 import questionMark from '@assets/images/questionMark.png';
 import imageEcommerce from '@assets/images/imageEcommerce.png';
-import project from '@assets/images/project.png';
+import atosbookingroom from '@assets/images/atosbookingroom.png';
 
 const projects = (await getCollection('projects', ({ data }) => {
 	return !data.inProgress;
@@ -49,6 +49,10 @@ const projectsWithTags = projects.map((project) => {
 		importedImage = imageEcommerce;
 	} else if (project.data.image === 'questionMark') {
 		importedImage = questionMark;
+	} else if (project.data.image === 'atosbookingroom') {
+		importedImage = atosbookingroom;
+	} else if (project.data.image) {
+		importedImage = project.data.image;
 	} else {
 		importedImage = questionMark;
 	}

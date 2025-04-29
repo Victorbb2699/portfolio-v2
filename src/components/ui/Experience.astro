@@ -7,9 +7,9 @@ import { useState } from 'react';
 ---
 
 <div class="mb-2 flex flex-row">
-	<School class="mr-2 size-6" />
-	<h2 class="font-monospace text-lg font-semibold text-lightgreen">Studies & Experience</h2>
-	<Briefcase class="ml-2 size-6" />
+	<School class="mr-2 mt-2 size-6 text-black dark:text-white" />
+	<h2 class="font-monospace text-3xl font-semibold text-lightgreen">Studies & Experience</h2>
+	<Briefcase class="text-black dark:text-white ml-2 mt-2 size-6" />
 </div>
 
 <ol class="relative ml-3 border-s border-lightgreen">
@@ -84,30 +84,57 @@ import { useState } from 'react';
 			d="M1 5h12m0 0L9 1m4 4L9 9"></path>
 	</li>
 </ol>
-<SlideInPanel
-	id="panel-1"
-	title="Internship Backend Developer"
-	content="Desarrollé una aplicación web para firmas digitales utilizando JavaScript, Canvas API, PHP, HTML y CSS. Además optimicé el flujo de trabajo con automatización de formularios y gestión segura de documentos."
-	client:load
-/>
-<SlideInPanel
-	id="panel-2"
-	title="Software Developer"
-	content={`
-    Developed a complete eCommerce solution using Spring Boot and Thymeleaf, with a modular, scalable, and secure architecture.
-    Implemented security layers, data persistence, and deployment via Docker.
-    Optimized for cloud environments with AWS, enhancing performance and scalability.
-    Room Reservation Management System:
-    Developed a full-stack web application focused on security, user experience, and modern deployment practices.
-    Backend: Django + DRF, exposing a secure RESTful API protected by JWT authentication managed through Keycloak as an identity provider (SSO replacement).
-    Frontend: Developed with Next.js for a modern and responsive user interface.
-    Database: PostgreSQL.
-    Integrated automatic confirmation email sending for reservations.
-    Designed a centralized logging system and robust error handling.
-    Fully dockerized solution, ensuring reproducibility and seamless deployment across all development stages.
-  `}
-	client:load
-/>
+<div class="mb-10 ml-4 mr-16 text-justify text-black dark:text-white">
+	<SlideInPanel id="panel-1" title="Internship Backend Developer">
+		<div>
+			<p>
+				I developed a web application for signing documents online using JavaScript, PHP, HTML, and
+				CSS. The application featured an interactive canvas implemented with the Canvas API to
+				capture digital signatures and store them on the server using PHP.
+			</p>
+
+			<p>
+				I designed an intuitive and responsive interface, optimizing both the user experience and
+				the security of the signing process.
+			</p>
+		</div>
+	</SlideInPanel>
+
+	<SlideInPanel id="panel-2" title="Software Developer">
+		<div>
+			<p>
+				I received extensive training in the fundamentals of software development, starting with
+				algorithms and advanced database management, all the way to current frameworks used in
+				various projects.
+			</p>
+			<br />
+			<p>
+				Development of a generic eCommerce template with Spring Boot and Thymeleaf, implementing a
+				modular and scalable architecture, with integrated security and data persistence using MySQL
+				as the database. A logging system was added, and use cases for error management were also
+				considered. It was dockerized for easier deployment and implemented on AWS, optimizing its
+				performance and scalability in the cloud.
+			</p>
+			<br />
+			<p>Room Reservation Management System:</p>
+			<br />
+			<p>
+				Developed a full-stack web application focused on security, user experience, and modern
+				deployment practices.
+				<br />
+				<span>Backend:</span> Django + DRF, exposing a secure RESTful API protected by JWT authentication
+				managed through Keycloak as an identity provider (SSO replacement).<br />
+				<span>Database:</span> PostgreSQL.
+			</p>
+			<br />
+			<p>
+				Integrated automatic confirmation email sending for reservations. Designed a centralized
+				logging system and robust error handling. Fully dockerized solution, ensuring
+				reproducibility and seamless deployment across all development stages.
+			</p>
+		</div>
+	</SlideInPanel>
+</div>
 
 <script>
 	let activePanel: HTMLElement | null = null;
