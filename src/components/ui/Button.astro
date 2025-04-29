@@ -16,14 +16,14 @@ const sizes = {
 };
 
 const styles = {
-	primary: 'bg-black text-white hover:bg-lightgreen  border-2 border-transparent',
+	primary: 'bg-black text-white hover:bg-seagreen  border-2 border-transparent',
 };
 ---
 
 <button
 	{...rest}
 	class:list={[
-		'rounded-xl text-center transition focus-visible:ring-2 ring-offset-2 ring-lightgreen',
+		'rounded-xl text-center transition focus-visible:ring-2 ring-offset-2 ring-seagreen',
 		block && 'w-full',
 		sizes[size],
 		styles[style],
