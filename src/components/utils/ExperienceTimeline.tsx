@@ -25,16 +25,16 @@ export default function ExperienceTimeline() {
         };
     }, [activePanel]);
 
+
+
     return (
         <>
-            {/* Title and Icons */}
             <div className="mb-2 flex flex-row">
-                <FaSchool className="mr-2 mt-2 text-seagreen text-3xl" />
+                <FaSchool className="mr-2 mt-2 text-seagreen text-3xl" /> {/* Icono reemplazado */}
                 <h2 className="font-monospace text-3xl font-semibold text-seagreen">Studies & Experience</h2>
-                <FaBriefcase className="ml-2 mt-2 text-seagreen text-3xl" />
+                <FaBriefcase className="ml-2 mt-2 text-seagreen text-3xl" /> {/* Icono reemplazado */}
             </div>
 
-            {/* Timeline */}
             <ol className="relative ml-3 border-s border-seagreen">
                 {/* Studies */}
                 <li className="mb-10 ms-4">
@@ -92,70 +92,69 @@ export default function ExperienceTimeline() {
             </ol>
 
             {/* Slide Panels */}
-            <div className="mb-10 ml-4 mr-16 text-justify text-black dark:text-white">
-                <SlideInPanel
-                    id="panel-1"
-                    title="Internship Backend Developer"
-                    isOpen={activePanel === 'panel-1'}
-                    onClose={() => togglePanel('panel-1')}
-                    isMobile={isMobile}
-                >
-                    <div>
-                        <p>
-                            Developed a web application for signing documents online using JavaScript, PHP, HTML, and
-                            CSS. The application featured an interactive canvas implemented with the Canvas API to capture
-                            digital signatures and store them on the server using PHP.
-                        </p>
+            <SlideInPanel
+                id="panel-1"
+                title="Internship Backend Developer"
+                isOpen={activePanel === 'panel-1'}
+                onClose={() => togglePanel('panel-1')}
+                isMobile={isMobile}
+            >
+                <div className="text-black dark:text-white">
+                    <p>
+                        Developed a web application for signing documents online using JavaScript, PHP, HTML, and
+                        CSS. The application featured an interactive canvas implemented with the Canvas API to capture
+                        digital signatures and store them on the server using PHP.
+                    </p>
+                    <p>
+                        I designed an intuitive and responsive interface, optimizing both the user experience and the
+                        security of the signing process.
+                    </p>
+                </div>
+            </SlideInPanel>
 
-                        <p>
-                            I designed an intuitive and responsive interface, optimizing both the user experience and the
-                            security of the signing process.
-                        </p>
-                    </div>
-                </SlideInPanel>
-
-                <SlideInPanel
-                    id="panel-2"
-                    title="Software Developer"
-                    isOpen={activePanel === 'panel-2'}
-                    onClose={() => togglePanel('panel-2')}
-                    isMobile={isMobile}
-                >
-                    <div>
-                        <p>
-                            I received extensive training in the fundamentals of software development, starting with
-                            algorithms and advanced database management, all the way to current frameworks used in various
-                            projects.
-                        </p>
-                        <br />
-                        <p>
-                            Development of a generic eCommerce template with Spring Boot and Thymeleaf, implementing a
-                            modular and scalable architecture, with integrated security and data persistence using MySQL as
-                            the database. A logging system was added, and use cases for error management were also
-                            considered. It was dockerized for easier deployment and implemented on AWS, optimizing its
-                            performance and scalability in the cloud.
-                        </p>
-                        <br />
-                        <p className="">Room Reservation Management System:</p>
-                        <p>
-                            Developed a full-stack web application focused on security, user experience, and modern
-                            deployment practices.
-                        </p>
-                        <p>
-                            Backend: Django + DRF, exposing a secure RESTful API protected by JWT
-                            authentication managed through Keycloak as an identity provider (SSO replacement).
-                        </p>
-                        <br />
-                        <p>Database: PostgreSQL.</p>
-                        <br />
-                        <p>
-                            Integrated automatic confirmation email sending for reservations. Designed a centralized logging
-                            system and robust error handling. Fully dockerized solution, ensuring reproducibility and
-                            seamless deployment across all development stages.
-                        </p>
-                    </div>
-                </SlideInPanel>
-            </div>
+            <SlideInPanel
+                id="panel-2"
+                title="Software Developer"
+                isOpen={activePanel === 'panel-2'}
+                onClose={() => togglePanel('panel-2')}
+                isMobile={isMobile}
+            >
+                <div className="text-black dark:text-white">
+                    <p>
+                        I received extensive training in the fundamentals of software development, starting with
+                        algorithms and advanced database management, all the way to current frameworks used in various
+                        projects.
+                    </p>
+                    <br />
+                    <p>
+                        Development of a generic eCommerce template with Spring Boot and Thymeleaf, implementing a
+                        modular and scalable architecture, with integrated security and data persistence using MySQL as
+                        the database. A logging system was added, and use cases for error management were also
+                        considered. It was dockerized for easier deployment and implemented on AWS, optimizing its
+                        performance and scalability in the cloud.
+                    </p>
+                    <br />
+                    <p className="">Room Reservation Management System:</p>
+                    <p>
+                        Developed a full-stack web application focused on security, user experience, and modern
+                        deployment practices.
+                    </p>
+                    <p>
+                        Backend: Django + DRF, exposing a secure RESTful API protected by JWT
+                        authentication managed through Keycloak as an identity provider (SSO replacement).
+                    </p>
+                    <br />
+                    <p>
+                        Database: PostgreSQL.
+                    </p>
+                    <br />
+                    <p>
+                        Integrated automatic confirmation email sending for reservations. Designed a centralized logging
+                        system and robust error handling. Fully dockerized solution, ensuring reproducibility and
+                        seamless deployment across all development stages.
+                    </p>
+                </div>
+            </SlideInPanel>
         </>
     );
 }
