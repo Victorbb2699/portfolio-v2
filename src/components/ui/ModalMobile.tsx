@@ -14,7 +14,7 @@ export default function ModalMobile({
     return (
         <div
             id={id}
-            className="fixed inset-0 z-50 flex flex-col bg-white dark:bg-darkgray transform transition-transform duration-300 translate-y-0"
+            className="fixed inset-0 z-50 flex flex-col bg-white dark:bg-darkgray"
         >
             <div className="sticky top-0 bg-white dark:bg-darkgray p-4 shadow-md flex justify-between items-center">
                 <h2 className="text-2xl font-monospace text-seagreen dark:text-seagreen">

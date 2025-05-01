@@ -3,6 +3,12 @@ const plugin = require('tailwindcss/plugin');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	safelist: [
+		'translate-y-0',
+		'-translate-y-full',
+		'translate-x-0',
+		'-translate-x-full',
+	],
 	darkMode: 'class',
 	theme: {
 		screens: {
